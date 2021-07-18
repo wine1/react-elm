@@ -1,0 +1,137 @@
+@mixin line-clamp($line: 2){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
+@mixin border_half($color: $borderColor, $radius: 0){
+  position: relative;
+  &:after{
+    content: '';
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    border: 1px solid $color;
+    border-radius: $radius;
+    -webkit-transform: scale(0.5,0.5);
+    transform: scale(0.5,0.5);
+    transform-origin: top left;
+    -webkit-transform-origin: top left;
+  }
+}
+
+@mixin border_vertical_half($color: $borderColor){
+  position: relative;
+  &:after{
+    content: '';
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid $color;
+    border-top: 1px solid $color;
+    -webkit-transform: scale(0.5,0.5);
+    transform: scale(0.5,0.5);
+    transform-origin: top left;
+    -webkit-transform-origin: top left;
+  }
+}
+
+@mixin border_bottom_half($color: $borderColor){
+  position: relative;
+  &:after{
+    content: '';
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid $color;
+    -webkit-transform: scale(0.5,0.5);
+    transform: scale(0.5,0.5);
+    transform-origin: top left;
+    -webkit-transform-origin: top left;
+    z-index:1;
+  }
+}
+@mixin border_top_half($color: $borderColor){
+  position: relative;
+  &:after{
+    content: '';
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    border-top: 1px solid $color;
+    -webkit-transform: scale(0.5,0.5);
+    transform: scale(0.5,0.5);
+    transform-origin: top left;
+    -webkit-transform-origin: top left;
+  }
+}
+@mixin border_left_half($color: $borderColor){
+  position: relative;
+  &:after{
+    content: '';
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    border-left: 1px solid $color;
+    -webkit-transform: scale(0.5,0.5);
+    transform: scale(0.5,0.5);
+    transform-origin: top left;
+    -webkit-transform-origin: top left;
+  }
+}
+@mixin border_right_half($color: $borderColor){
+  position: relative;
+  &:after{
+    content: '';
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    border-right: 1px solid $color;
+    -webkit-transform: scale(0.5,0.5);
+    transform: scale(0.5,0.5);
+    transform-origin: top left;
+    -webkit-transform-origin: top left;
+  }
+}
+
+@mixin multiEllipsis($number: 1) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $number;
+}
+@mixin placeholderColor($color: #999) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
