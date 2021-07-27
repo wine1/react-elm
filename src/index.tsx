@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './assert/sass/style.scss';
 // import App from './App';
 import RouterConfig from "./router/router";
 import reportWebVitals from './reportWebVitals';
