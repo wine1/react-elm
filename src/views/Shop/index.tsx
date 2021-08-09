@@ -1,5 +1,9 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom'
+import {connect} from 'react-redux'
+import { addToCart } from '../../store/actions'
+import { getVisibleProducts } from '../../store/reducer/products';
+
 import API from "../../server/api"
 import CommentList from '../../components/CommentList'
 import GoodsList from '../../components/GoodsList'

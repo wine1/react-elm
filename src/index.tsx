@@ -5,11 +5,32 @@ import './assert/sass/style.scss';
 import RouterConfig from "./router/router";
 import reportWebVitals from './reportWebVitals';
 
+
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import { createLogger } from 'redux-logger'
+import thunk from 'redux-thunk'
+import reducer from './store/reducer/index'
+import { getAllProducts } from './store/actions/index'
+
+const middleware = [thunk]
+if (process.env.NODE_ENV !== 'production') {
+  // @ts-ignore
+  middleware.push(createLogger());
+}
+
+const store = createStore(
+  reducer,
+  applyMiddleware(...middleware)
+)
+
+// @ts-ignore
+store.dispatch(getAllProducts())
+
 ReactDOM.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
-  <RouterConfig></RouterConfig>,
+  <Provider store={store}>
+    <RouterConfig></RouterConfig>
+  </Provider>,
   document.getElementById('root')
 );
 
