@@ -11,7 +11,7 @@ import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import reducer from './store/reducer/index'
-import { getAllProducts } from './store/actions/index'
+// import { getAllProducts } from './store/actions/index'
 
 const middleware = [thunk]
 if (process.env.NODE_ENV !== 'production') {
@@ -24,8 +24,7 @@ const store = createStore(
   applyMiddleware(...middleware)
 )
 
-// @ts-ignore
-store.dispatch(getAllProducts())
+// store.dispatch(getAllProducts)
 
 ReactDOM.render(
   <Provider store={store}>

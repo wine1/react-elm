@@ -1,8 +1,5 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom'
-import {connect} from 'react-redux'
-import { addToCart } from '../../store/actions'
-import { getVisibleProducts } from '../../store/reducer/products';
 
 import API from "../../server/api"
 import CommentList from '../../components/CommentList'
@@ -116,17 +113,17 @@ class Shop extends React.Component<RouteComponentProps> {
     }
     _renderMain = () => {
         let { listIndex } = this.state
-        const handleChange=(e:any)=>{
-            let index=e.target.dataset.index
+        const handleChange = (e: any) => {
+            let index = e.target.dataset.index
             this.setState({
-                listIndex:parseInt(index)
+                listIndex: parseInt(index)
             })
         }
         return (
             <div className="wrap-main">
                 <ul className="wrap-tab">
-                    <li className={listIndex === 0 ? 'active-tab' : 'tab'} data-index='0' onClick={(e)=>handleChange(e)}>商品</li>
-                    <li className={listIndex === 1 ? 'active-tab' : 'tab'} data-index='1' onClick={(e)=>handleChange(e)}>评价</li>
+                    <li className={listIndex === 0 ? 'active-tab' : 'tab'} data-index='0' onClick={(e) => handleChange(e)}>商品</li>
+                    <li className={listIndex === 1 ? 'active-tab' : 'tab'} data-index='1' onClick={(e) => handleChange(e)}>评价</li>
                 </ul>
                 <ul className="wrap-content">
                     <li className={listIndex === 0 ? 'show' : 'hide'}>{this._renderGoodsList()}</li>
@@ -139,7 +136,7 @@ class Shop extends React.Component<RouteComponentProps> {
     _renderGoodsList = () => {
         return (
             <div>
-                <GoodsList></GoodsList>
+                <GoodsList list={this.state.goodsList}></GoodsList>
                 <BuyCart></BuyCart>
             </div>
         )
