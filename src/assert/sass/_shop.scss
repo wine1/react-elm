@@ -1,33 +1,32 @@
 .wrap-shop {
-    .wrap-header {
-
-    }
-    .wrap-main {
-        .wrap-tab {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            li {
-                flex: 1;
-                text-align: center;
-                line-height: 3rem;
-                &.tab {
-                    color: #333;
-                }
-                &.active-tab {
-                    position: relative;
-                    color: $blue;
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        bottom: 0;
-                        width: 100%;
-                        height:2px;
-                        background: $blue;
-                        border-radius: 5px;
-                    }
-                }
-            }
+  .wrap-header {
+  }
+  .wrap-main {
+    .wrap-tab {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      li {
+        flex: 1;
+        text-align: center;
+        line-height: 3rem;
+        &.tab {
+          color: #333;
         }
+        &.active-tab {
+          position: relative;
+          color: $blue;
+          &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: $blue;
+            border-radius: 5px;
+          }
+        }
+      }
     }
+  }
 }

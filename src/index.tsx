@@ -4,8 +4,6 @@ import './assert/sass/style.scss';
 // import App from './App';
 import RouterConfig from "./router/router";
 import reportWebVitals from './reportWebVitals';
-
-
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'

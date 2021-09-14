@@ -1,5 +1,5 @@
-import axios from 'axios';
-import envConfig from '../envConfig/envConfig';
+import axios from 'axios'
+import envConfig from '../envConfig/envConfig'
 /**
  * 主要params参数
  * @params method {string} 方法名
@@ -13,15 +13,15 @@ import envConfig from '../envConfig/envConfig';
  * @return {Promise}
  * 其他更多拓展参看axios文档后 自行拓展
  * 注意：params中的数据会覆盖method url 参数，所以如果指定了这2个参数则不需要在params中带入
-*/
+ */
 
 export default class Server {
-  axios(method:string, url:string, params:any, baseType?: string) {
+  axios(method: string, url: string, params: any, baseType?: string) {
     return new Promise((resolve, reject) => {
-      if (typeof params !== 'object') params = {};
+      if (typeof params !== 'object') params = {}
       let baseURL: string = envConfig.baseURL
-     
-      let _option = params;
+
+      let _option = params
       // console.log(111,params)
       _option = {
         method,
@@ -32,21 +32,24 @@ export default class Server {
         data: null,
         headers: null,
         withCredentials: false, //是否携带cookies发起请求
-        validateStatus: (status:any) => {
-          return status >= 200 && status < 300;
+        validateStatus: (status: any) => {
+          return status >= 200 && status < 300
         },
         ...params,
       }
       // console.log(params,_option)
-      axios.request(_option).then(res => {
-        resolve(typeof res.data === 'object' ? res.data : JSON.parse(res.data))
-      }, error => {
-        if (error.response) {
-          reject(error.response.data)
-        } else {
-          reject(error)
+      axios.request(_option).then(
+        res => {
+          resolve(typeof res.data === 'object' ? res.data : JSON.parse(res.data))
+        },
+        error => {
+          if (error.response) {
+            reject(error.response.data)
+          } else {
+            reject(error)
+          }
         }
-      })
+      )
     })
   }
 }

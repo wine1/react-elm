@@ -1,3 +1,1 @@
-export interface res{
-
-}
+export interface res {}

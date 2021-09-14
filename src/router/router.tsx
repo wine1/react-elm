@@ -8,12 +8,12 @@ export default class RouterConfig extends React.Component {
     render() {
         return (
             <HashRouter>
-             
+
                 <Switch>
                     <Route path="/" exact component={Home}></Route>
                     <Route path="/shop" component={Shop}></Route>
                 </Switch>
-                </HashRouter>
+            </HashRouter>
         )
     }
 }

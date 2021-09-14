@@ -1,20 +1,21 @@
 
 import React from 'react';
 
-import { Button } from 'antd'
 const ProductItem = (props: any) => {
-    let { list } = props
+    let { name, description, specfoods, onAddToCartClicked } = props
+    // console.log(123, onAddToCartClicked)
     return (
         <div>
-            {!!list?.length && list.map((item: any) =>
-                <div className="sub-li" >
-                    <div>{item.name}</div>
-                    <div>{item.description}</div>
-                    {!!item.specfoods?.length && item.specfoods.map((item: any) =>
-                        <div>{item.price}</div>)}
-                    <Button>+1</Button>
-                </div>
-            )}</div>
+            {/* {!!list?.length && list.map((item: any) => */}
+            <div className="sub-li">
+                <div>{name}</div>
+                <div>{description}</div>
+                {!!specfoods?.length && specfoods.map((item: any, index: number) =>
+                    <div key={index}>{item.price}</div>)}
+                <button onClick={onAddToCartClicked}>+1</button>
+            </div>
+            {/* )} */}
+        </div>
     )
 }
 

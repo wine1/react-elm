@@ -1,13 +1,13 @@
-@mixin line-clamp($line: 2){
+@mixin line-clamp($line: 2) {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $line;
   overflow: hidden;
 }
 
-@mixin border_half($color: $borderColor, $radius: 0){
+@mixin border_half($color: $borderColor, $radius: 0) {
   position: relative;
-  &:after{
+  &:after {
     content: '';
     width: 200%;
     height: 200%;
@@ -17,16 +17,16 @@
     box-sizing: border-box;
     border: 1px solid $color;
     border-radius: $radius;
-    -webkit-transform: scale(0.5,0.5);
-    transform: scale(0.5,0.5);
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
     transform-origin: top left;
     -webkit-transform-origin: top left;
   }
 }
 
-@mixin border_vertical_half($color: $borderColor){
+@mixin border_vertical_half($color: $borderColor) {
   position: relative;
-  &:after{
+  &:after {
     content: '';
     width: 200%;
     height: 200%;
@@ -36,16 +36,16 @@
     box-sizing: border-box;
     border-bottom: 1px solid $color;
     border-top: 1px solid $color;
-    -webkit-transform: scale(0.5,0.5);
-    transform: scale(0.5,0.5);
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
     transform-origin: top left;
     -webkit-transform-origin: top left;
   }
 }
 
-@mixin border_bottom_half($color: $borderColor){
+@mixin border_bottom_half($color: $borderColor) {
   position: relative;
-  &:after{
+  &:after {
     content: '';
     width: 200%;
     height: 200%;
@@ -54,16 +54,16 @@
     left: 0;
     box-sizing: border-box;
     border-bottom: 1px solid $color;
-    -webkit-transform: scale(0.5,0.5);
-    transform: scale(0.5,0.5);
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
     transform-origin: top left;
     -webkit-transform-origin: top left;
-    z-index:1;
+    z-index: 1;
   }
 }
-@mixin border_top_half($color: $borderColor){
+@mixin border_top_half($color: $borderColor) {
   position: relative;
-  &:after{
+  &:after {
     content: '';
     width: 200%;
     height: 200%;
@@ -72,15 +72,15 @@
     left: 0;
     box-sizing: border-box;
     border-top: 1px solid $color;
-    -webkit-transform: scale(0.5,0.5);
-    transform: scale(0.5,0.5);
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
     transform-origin: top left;
     -webkit-transform-origin: top left;
   }
 }
-@mixin border_left_half($color: $borderColor){
+@mixin border_left_half($color: $borderColor) {
   position: relative;
-  &:after{
+  &:after {
     content: '';
     width: 200%;
     height: 200%;
@@ -89,15 +89,15 @@
     left: 0;
     box-sizing: border-box;
     border-left: 1px solid $color;
-    -webkit-transform: scale(0.5,0.5);
-    transform: scale(0.5,0.5);
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
     transform-origin: top left;
     -webkit-transform-origin: top left;
   }
 }
-@mixin border_right_half($color: $borderColor){
+@mixin border_right_half($color: $borderColor) {
   position: relative;
-  &:after{
+  &:after {
     content: '';
     width: 200%;
     height: 200%;
@@ -106,8 +106,8 @@
     left: 0;
     box-sizing: border-box;
     border-right: 1px solid $color;
-    -webkit-transform: scale(0.5,0.5);
-    transform: scale(0.5,0.5);
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
     transform-origin: top left;
     -webkit-transform-origin: top left;
   }

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 interface CommentListProps {
     list: any,
@@ -7,12 +7,12 @@ interface CommentListProps {
     onBottom: () => void,
 }
 
-interface CommentListState {
-    scrollTop: number,
-    recordScroll: boolean
-}
+// interface CommentListState {
+//     scrollTop: number,
+//     recordScroll: boolean
+// }
 
-const { useState, useEffect } = React
+const { useEffect } = React
 
 const CommentList: React.FC<CommentListProps> = (props) => {
     let { list, isLoading, noData, onBottom } = props
@@ -46,9 +46,9 @@ const CommentList: React.FC<CommentListProps> = (props) => {
     const insideViewportCb = () => {
         // console.log(11111, scrollTop)
         // shouldRecordScroll(() => true)
-            // if (list.length && scrollTop !== 0) {
-                onBottom()
-            // }
+        // if (list.length && scrollTop !== 0) {
+        onBottom()
+        // }
 
     }
 

@@ -1,31 +1,30 @@
 .component-commentlist {
-    .commentlist-li {
-        .wrap-userinfo {
-
-        }
-        .comment-content {
-            img {
-                height: 10rem;
-                width: 10rem;
-            }
-        }
+  .commentlist-li {
+    .wrap-userinfo {
     }
+    .comment-content {
+      img {
+        height: 10rem;
+        width: 10rem;
+      }
+    }
+  }
 }
 
 .component-goodlist {
-    .li {
-        .sub-li {
-            border-bottom: 1px solid #eee;
-        }
+  .li {
+    .sub-li {
+      border-bottom: 1px solid #eee;
     }
+  }
 }
 
 .component-cart {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    background: rgba(0,0,0,1);
-    color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 1);
+  color: #fff;
 }

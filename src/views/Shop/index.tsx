@@ -5,6 +5,7 @@ import API from "../../server/api"
 import CommentList from '../../components/CommentList'
 import GoodsList from '../../components/GoodsList'
 import BuyCart from '../../components/BuyCart'
+
 class Shop extends React.Component<RouteComponentProps> {
 
     state = {
@@ -51,7 +52,6 @@ class Shop extends React.Component<RouteComponentProps> {
                     info
                 },
                 shopId: id,
-
             })
 
         }
@@ -59,7 +59,7 @@ class Shop extends React.Component<RouteComponentProps> {
 
     getFoodsListData = async (id: number) => {
         let resList: any = await API.getFoodsList({ params: { 'restaurant_id': id } })
-        console.log('goodslist', resList)
+        // console.log('goodslist', resList)
         if (resList) {
             this.setState({
                 goodsList: resList
@@ -79,7 +79,7 @@ class Shop extends React.Component<RouteComponentProps> {
                 isLoading = false
             }
             this.setState((state: any, props) => {
-                console.log(state, props)
+                // console.log(state, props)
                 let list = state.commentsList.list.concat(resList)
                 let noData = false
                 if (list.length) {
