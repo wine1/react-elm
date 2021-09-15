@@ -29,7 +29,6 @@ const CommentList: React.FC<CommentListProps> = (props) => {
         } catch (err) {
             console.log("err in finding node", err);
         }
-
         return () => {
             observer.disconnect()
         }
