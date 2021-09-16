@@ -22,7 +22,7 @@ export default class Server {
       let baseURL: string = envConfig.baseURL
 
       let _option = params
-      // console.log(111,params)
+      // console.log(111, params)
       _option = {
         method,
         url,

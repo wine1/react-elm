@@ -1,11 +1,9 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom'
-
 import API from "../../server/api"
 import CommentList from '../../components/CommentList'
 import GoodsList from '../../components/GoodsList'
 import BuyCart from '../../components/BuyCart'
-
 class Shop extends React.Component<RouteComponentProps> {
 
     state = {
@@ -22,7 +20,8 @@ class Shop extends React.Component<RouteComponentProps> {
             pageIndex: 0,
             noData: false,
             isLoading: true
-        }
+        },
+
     }
 
     render() {
@@ -35,11 +34,13 @@ class Shop extends React.Component<RouteComponentProps> {
     }
 
     componentDidMount() {
-        this.initData()
+        console.log(111, this.props.location)
+        let shopid = 1
+        this.initData(shopid)
     }
 
-    initData = async () => {
-        let res: any = await API.getshop()
+    initData = async (shopid: number) => {
+        let res: any = await API.getshop({ shopid })
         console.log('shop', res)
         if (res) {
             let { image_path: image, name, promotion_info: info, id } = res
@@ -134,9 +135,12 @@ class Shop extends React.Component<RouteComponentProps> {
     }
 
     _renderGoodsList = () => {
+        let { goodsList } = this.state
+        let list: any = goodsList
+
         return (
-            <div>
-                <GoodsList list={this.state.goodsList}></GoodsList>
+            <div className="wrap-goodlist">
+                <GoodsList list={list}></GoodsList>
                 <BuyCart></BuyCart>
             </div>
         )

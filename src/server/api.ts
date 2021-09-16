@@ -1,9 +1,9 @@
 import server from './server'
 
 class API extends server {
-  async getshop(params = {}) {
+  async getshop(params: any = {}) {
     try {
-      let res = await this.axios('get', 'shopping/restaurant/1', params)
+      let res = await this.axios('get', `shopping/restaurant/${params.shopid}`, params)
       if (res) {
         return res
       }

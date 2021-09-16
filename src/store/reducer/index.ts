@@ -11,7 +11,6 @@ export const getCartList = (state: any) => {
 }
 
 export const getTotal = (state: any) => {
-  console.log('getTotal', state)
   let total = 0
   let list = state.cart?.cartLists
   if (list?.length) {

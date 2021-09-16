@@ -5,14 +5,16 @@ const ProductItem = (props: any) => {
     let { name, description, specfoods, onAddToCartClicked } = props
     // console.log(123, onAddToCartClicked)
     return (
-        <div>
+        <div className="component-productItem">
             {/* {!!list?.length && list.map((item: any) => */}
             <div className="sub-li">
                 <div>{name}</div>
                 <div>{description}</div>
                 {!!specfoods?.length && specfoods.map((item: any, index: number) =>
                     <div key={index}>{item.price}</div>)}
-                <button onClick={onAddToCartClicked}>+1</button>
+                <div>
+                    <button onClick={onAddToCartClicked}>+1</button>
+                </div>
             </div>
             {/* )} */}
         </div>
