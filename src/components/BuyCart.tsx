@@ -16,11 +16,11 @@ const BuyCart = (props: any) => {
     }
     return (
         <div className="component-cart">
-            <div className={classNames('cartlist-layer', { [`hide`]: !showList })}></div>
-            <div className={classNames('cartlist-ul', { [`hide`]: !showList })}>
+            <div className={classNames('cartlist-layer', { [`hide`]: !showList || !cartList.length })}></div>
+            <div className={classNames('cartlist-ul', { [`hide`]: !showList || !cartList.length })}>
                 <div className="cartlist-title">
                     <span>已选商品</span>
-                    <Button>清空</Button>
+                    <Button onClick={clearCart}>清空</Button>
                 </div>
                 {!!cartList?.length && cartList.map((item: any) =>
                     <div className="cartlist-li" key={item._id}>
@@ -30,7 +30,7 @@ const BuyCart = (props: any) => {
                     </div>)}
             </div>
 
-            <div className="wrap-cart-icon" onClick={toggleShowList}>
+            <div className="wrap-cart-icon ele_car_icon" onClick={toggleShowList}>
                 <div>购物车</div>
                 <div>{count}</div>
                 <Badge text={count} hot style={{ marginLeft: 12 }} />
@@ -39,7 +39,7 @@ const BuyCart = (props: any) => {
 
             {!cartList?.length && <div>buy someting to eat</div>}
             <div>{total}</div>
-            <Button type="ghost" inline size="small" style={{ marginRight: '4px', padding: '10px', }} onClick={clearCart}>{total ? '去结算' : '清除购物车'}</Button>
+            <Button type="ghost" inline size="small" style={{ marginRight: '4px', padding: '10px', }}>{total ? '去结算' : '购物车'}</Button>
         </div>
     )
 }

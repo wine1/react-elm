@@ -28,7 +28,7 @@ const GoodsList = (props: interProps) => {
                 }
             })
             setListHeightRecord(temp)
-            console.log('listHeightRecord', listHeightRecord, temp)
+            // console.log('listHeightRecord', listHeightRecord, temp)
         }
         const wrapper: any = document.querySelector('.wrapper')
         if (wrapper) {
@@ -53,13 +53,15 @@ const GoodsList = (props: interProps) => {
         }
     }, [list])
 
-    console.log('list', list)
+    // console.log('list', list)
 
     const listLeft = (index: number) => {
         setleftIndex(index)
         let scroll = -listHeightRecord[index]
         rightScroll.scrollTo(0, scroll, 1000)
     }
+
+
     return (
         <div className="component-goodlist">
             <div className="goodlist">
@@ -78,7 +80,12 @@ const GoodsList = (props: interProps) => {
                                     <div className="list-title">{item.name}</div>
                                     {!!item.foods?.length && item.foods.map((item: any) => {
                                         return <div key={item.item_id}>
-                                            <ProductItem name={item.name} description={item.description} specfoods={item.specfoods} onAddToCartClicked={() => addToCart(item.restaurant_id, item.specfoods[0])}></ProductItem>
+                                            <ProductItem
+                                                name={item.name}
+                                                description={item.description}
+                                                specfoods={item.specfoods}
+                                                onAddToCartClicked={() => addToCart(item.restaurant_id, item.specfoods[0])}
+                                            ></ProductItem>
                                         </div>
                                     })}
                                 </div>
