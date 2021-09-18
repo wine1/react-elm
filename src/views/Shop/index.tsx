@@ -34,7 +34,6 @@ class Shop extends React.Component<RouteComponentProps> {
     }
 
     componentDidMount() {
-        console.log(111, this.props.location)
         let shopid = 1
         this.initData(shopid)
     }

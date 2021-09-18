@@ -34,9 +34,9 @@ module.exports = {
       webpackConfig.plugins.push(
         new VConsolePlugin({
           enable: true,
-        }),
-        
+        })
       )
+
       return webpackConfig
     },
   },
@@ -44,6 +44,67 @@ module.exports = {
     configure: eslintConfig => {
       eslintConfig.extends = [`${process.cwd()}/esconfig.js`]
       return eslintConfig
+    },
+  },
+  babel: {
+    presets: [],
+    plugins: [['import', { libraryName: 'antd-mobile', style: 'css' }]],
+    loaderOptions: {
+      /* Any babel-loader configuration options: https://github.com/babel/babel-loader. */
+    },
+    loaderOptions: (babelLoaderOptions, { env, paths }) => {
+      return babelLoaderOptions
+    },
+  },
+  style: {
+    modules: {
+      localIdentName: '',
+    },
+    css: {
+      loaderOptions: {
+        /* Any css-loader configuration options: https://github.com/webpack-contrib/css-loader. */
+      },
+      loaderOptions: (cssLoaderOptions, { env, paths }) => {
+        return cssLoaderOptions
+      },
+    },
+    sass: {
+      loaderOptions: {
+        /* Any sass-loader configuration options: https://github.com/webpack-contrib/sass-loader. */
+      },
+      loaderOptions: (sassLoaderOptions, { env, paths }) => {
+        return sassLoaderOptions
+      },
+    },
+    postcss: {
+      mode: 'extends' /* (default value) */ || 'file',
+      // plugins: [require('plugin-to-append')], // Additional plugins given in an array are appended to existing config.
+      // plugins: plugins => [require('plugin-to-prepend')].concat(plugins), // Or you may use the function variant.
+      env: {
+        autoprefixer: {
+          browsers: 'last 1 version',
+        },
+        pxtorem: {
+          rootValue: 16,
+          unitPrecision: 5,
+          propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
+          selectorBlackList: [],
+          replace: true,
+          mediaQuery: false,
+          minPixelValue: 0,
+          exclude: /node_modules/i,
+        },
+        stage: 3,
+        features: {
+          /* Any CSS features: https://preset-env.cssdb.org/features. */
+        },
+      },
+      loaderOptions: {
+        /* Any postcss-loader configuration options: https://github.com/postcss/postcss-loader. */
+      },
+      loaderOptions: (postcssLoaderOptions, { env, paths }) => {
+        return postcssLoaderOptions
+      },
     },
   },
 }

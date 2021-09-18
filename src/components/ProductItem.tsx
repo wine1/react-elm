@@ -25,9 +25,8 @@ const ProductItem = (props: any) => {
         // 添加动画属性
         setTimeout(() => {
             let target: any = document.querySelector('.ele_car_icon')
-            console.log(111111111, target.offsetLeft, target.offsetWidth, target.offsetTop)
             bar.style.left = (target.offsetLeft + target.offsetWidth / 2) + 'px'
-            bar.style.top = document.body.clientHeight + 'px'
+            bar.style.top = document.body.clientHeight - 60 + 'px'
         }, 0);
         setTimeout(() => {
             document.body.removeChild(bar)
