@@ -1,6 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
-import { connect, useStore } from 'react-redux'
+import React, { useState } from 'react';
+import { connect } from 'react-redux'
 import { clearCart } from "../store/action"
 import { getCartList, getTotal, getCount } from "../store/reducer"
 import { Button, Badge } from 'antd-mobile';

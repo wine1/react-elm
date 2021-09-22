@@ -78,8 +78,6 @@ module.exports = {
     },
     postcss: {
       mode: 'extends' /* (default value) */ || 'file',
-      // plugins: [require('plugin-to-append')], // Additional plugins given in an array are appended to existing config.
-      // plugins: plugins => [require('plugin-to-prepend')].concat(plugins), // Or you may use the function variant.
       env: {
         autoprefixer: {
           browsers: 'last 1 version',

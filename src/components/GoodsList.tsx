@@ -51,7 +51,7 @@ const GoodsList = (props: interProps) => {
             }, 0);
 
         }
-    }, [list])
+    }, [list, leftIndex])
 
     // console.log('list', list)
 
@@ -68,7 +68,7 @@ const GoodsList = (props: interProps) => {
                 <div className="wrap-left">
                     {!!list.length && list.map((item: any, index: number) =>
                         <div className="wrap-left-ul" key={item.id}>
-                            <div className={classnames('wrap-left-li', { ['active']: leftIndex === index })} onClick={() => listLeft(index)}>{item.name}</div>
+                            <div className={classnames('wrap-left-li', { 'active': leftIndex === index })} onClick={() => listLeft(index)}>{item.name}</div>
                         </div>
                     )}
                 </div>

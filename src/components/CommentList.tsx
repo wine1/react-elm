@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import { Observer } from 'redux';
 
 interface CommentListProps {
     list: any,
@@ -17,20 +18,18 @@ const { useEffect } = React
 const CommentList: React.FC<CommentListProps> = (props) => {
     let { list, isLoading, noData, onBottom } = props
 
-    // const [scrollTop, recordScrollTop] = useState(0)
-    // const [recordScroll, shouldRecordScroll] = useState(false)
-    let observer: any
+    const observer = useRef<any>()
     useEffect(() => {
         //  scroll
         try {
             const node: any = document.getElementById(`isloading`)
-            observer = new IntersectionObserver(insideViewportCb);
-            node && observer.observe(node);
+            observer.current = new IntersectionObserver(insideViewportCb);
+            node && observer.current.observe(node);
         } catch (err) {
             console.log("err in finding node", err);
         }
         return () => {
-            observer.disconnect()
+            observer.current.disconnect()
         }
     }, [])
 
