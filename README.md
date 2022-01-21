@@ -13,3 +13,5 @@ In the project directory, you can run:
 test gitrebase
 
 test1
+
+test2
