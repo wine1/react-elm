@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assert/sass/style.scss';
-// import App from './App';
 import RouterConfig from "./router/router";
 import reportWebVitals from './reportWebVitals';
 import { createStore, applyMiddleware } from 'redux'
@@ -9,7 +8,6 @@ import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import reducer from './store/reducer/index'
-// import { getAllProducts } from './store/actions/index'
 
 const middleware = [thunk]
 if (process.env.NODE_ENV !== 'production') {

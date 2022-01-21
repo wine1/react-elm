@@ -1,26 +1,36 @@
-import React from 'react';
-import { useState } from 'react';
-import counter from "./store"
-import { createStore } from "redux";
-let store = createStore(counter)
-export default function Home() {
-    const [num, setCounter] = useState(0)
 
-    const increment = () => {
-        store.dispatch({ type: 'INCREMENT' })
-        // @ts-ignore
-        setCounter(store.getState())
+import React from 'react';
+import { useState, useEffect } from 'react';
+import ShopList from '../../components/ShopList';
+import newApi from '../../server/newApi';
+export default function Home(props: any) {
+
+    const [list, setList] = useState([])
+
+    useEffect(() => {
+        initData()
+    }, [])
+
+    const initData = async () => {
+        await newApi.getShop({}).then((res: any) => {
+            if (res?.data) {
+                setList(res.data)
+            }
+        }).catch()
     }
-    const decrement = () => {
-        store.dispatch({ type: 'DECREMENT' })
-        // @ts-ignore
-        setCounter(store.getState())
+
+
+    const toLogin = () => {
+        props.history.push('/login')
     }
+
     return (
         <div>
-            <div>VALUE:{num}</div>
-            <button onClick={() => increment()}>increment</button>
-            <button onClick={() => decrement()}>decrement</button>
+            <div>
+                <button onClick={() => toLogin()}>登陆</button>
+            </div>
+            <ShopList list={list}></ShopList>
+
         </div>
     )
 }

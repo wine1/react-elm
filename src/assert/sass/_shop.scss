@@ -43,6 +43,7 @@
         height: calc(100vh - 80px);
       }
       .wrap-left {
+        box-shadow: 4px 1px 9px 0px #ccc;
         flex: 2;
         // height: 100vh;
         overflow: scroll;

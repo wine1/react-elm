@@ -18,11 +18,15 @@ import envConfig from '../envConfig/envConfig'
 export default class Server {
   axios(method: string, url: string, params: any, baseType?: string) {
     return new Promise((resolve, reject) => {
-      if (typeof params !== 'object') params = {}
-      let baseURL: string = envConfig.baseURL
 
+      if (typeof params !== 'object') params = {}
+      let { isNewApi = false } = params
+      let baseURL: string = envConfig.baseURL
+      baseURL = isNewApi ? 'http://172.30.71.29:8088/' : baseURL
       let _option = params
-      // console.log(111, params)
+      const userInfo = localStorage.getItem('userInfo') || '';
+      let token = JSON.parse(userInfo)?.token
+      console.log(111, userInfo)
       _option = {
         method,
         url,
@@ -30,20 +34,23 @@ export default class Server {
         timeout: 30000,
         params: null,
         data: null,
-        headers: null,
+        headers: { Authorization: 'Bearer ' + token },
         withCredentials: false, //是否携带cookies发起请求
         validateStatus: (status: any) => {
           return status >= 200 && status < 300
         },
         ...params,
       }
-      // console.log(params,_option)
+      // console.log(params, _option)
+      // axios.defaults.withCredentials = true;
+
       axios.request(_option).then(
         res => {
           resolve(typeof res.data === 'object' ? res.data : JSON.parse(res.data))
         },
         error => {
           if (error.response) {
+            // console.log('error', error)
             reject(error.response.data)
           } else {
             reject(error)
