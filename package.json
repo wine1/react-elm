@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@craco/craco": "^6.2.0",
     "@loadable/component": "^5.15.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -17,7 +18,9 @@
     "babel-plugin-import": "^1.13.3",
     "better-scroll": "^2.4.2",
     "classnames": "^2.3.1",
+    "intersection-observer-polyfill": "^0.1.0",
     "node-sass": "^7.0.1",
+    "postcss-px-to-viewport": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",

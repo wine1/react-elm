@@ -6,6 +6,8 @@ const Shop = loadable(() => import("../views/Shop"))
 const Cart = loadable(() => import("../views/Cart"))
 const Mine = loadable(() => import("../views/Mine"))
 const Login = loadable(() => import("../views/Login"))
+const Test = loadable(() => import("../views/Test"))
+const TestClass = loadable(() => import("../views/TestClass"))
 export default class RouterConfig extends React.Component {
     render() {
         return (
@@ -16,6 +18,8 @@ export default class RouterConfig extends React.Component {
                     <Route path="/cart" component={Cart}></Route>
                     <Route path="/mine" component={Mine}></Route>
                     <Route path="/login" component={Login}></Route>
+                    <Route path="/test" component={Test}></Route>
+                    <Route path="/testclass" component={TestClass}></Route>
                 </Switch>
             </HashRouter>
         )

@@ -1,17 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { Observer } from 'redux';
-
+import LazyLOadPic from './LazyLoadPic'
 interface CommentListProps {
     list: any,
     isLoading: boolean,
     noData: boolean,
     onBottom: () => void,
 }
-
-// interface CommentListState {
-//     scrollTop: number,
-//     recordScroll: boolean
-// }
 
 const { useEffect } = React
 
@@ -73,7 +67,8 @@ const CommentList: React.FC<CommentListProps> = (props) => {
                         {!!item.item_ratings.length && item.item_ratings.map((item: any, index: number) => {
                             return (
                                 <div className="comment-content" key={index}>
-                                    <img src={item.image_hash} alt="" />
+                                    {/* <img src={item.image_hash} alt="" /> */}
+                                    <LazyLOadPic imageUrl={item.image_hash}></LazyLOadPic>
                                     <p>{item.food_name}</p>
                                 </div>
                             )

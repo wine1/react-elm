@@ -24,9 +24,8 @@ export default class Server {
       let baseURL: string = envConfig.baseURL
       baseURL = isNewApi ? 'http://172.30.71.29:8088/' : baseURL
       let _option = params
-      const userInfo = localStorage.getItem('userInfo') || '';
-      let token = JSON.parse(userInfo)?.token
-      console.log(111, userInfo)
+      // const userInfo = localStorage.getItem('userInfo') || '';
+      // let token = JSON.parse(userInfo)?.token
       _option = {
         method,
         url,
@@ -34,7 +33,7 @@ export default class Server {
         timeout: 30000,
         params: null,
         data: null,
-        headers: { Authorization: 'Bearer ' + token },
+        // headers: { Authorization: 'Bearer ' + token },
         withCredentials: false, //是否携带cookies发起请求
         validateStatus: (status: any) => {
           return status >= 200 && status < 300

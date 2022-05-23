@@ -61,7 +61,6 @@ const GoodsList = (props: interProps) => {
         rightScroll.scrollTo(0, scroll, 1000)
     }
 
-
     return (
         <div className="component-goodlist">
             <div className="goodlist">

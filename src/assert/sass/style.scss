@@ -3,3 +3,9 @@
 @import 'common';
 @import './shop';
 @import './components';
+
+@import './view/cart.scss';
+$bg: blue;
+html {
+  $bg: red;
+}

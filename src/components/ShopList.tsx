@@ -7,7 +7,6 @@ interface interfaceProps {
 const ShopList: React.FC<interfaceProps> = (props) => {
   useEffect(() => {
     let list = props.list
-    console.log(222, list)
   }, [])
 
   return (<div>123</div>)

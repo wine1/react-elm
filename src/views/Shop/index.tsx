@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom'
 import API from "../../server/api"
 import CommentList from '../../components/CommentList'
 import GoodsList from '../../components/GoodsList'
 import BuyCart from '../../components/BuyCart'
+
 class Shop extends React.Component<RouteComponentProps> {
 
     state = {
@@ -72,7 +74,7 @@ class Shop extends React.Component<RouteComponentProps> {
         let { commentsList } = this.state
         let pageIndex = ++commentsList.pageIndex
         let resList: any = await API.getCommentList(id, { params: { 'offset': pageIndex * limit, 'limit': limit } })
-        console.log('commentslist', resList)
+        // console.log('commentslist', resList)
         if (resList.length) {
             let isLoading = true
             if (resList.length < limit) {

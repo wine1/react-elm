@@ -1,6 +1,12 @@
 const autoprefixer = require('autoprefixer')
 let VConsolePlugin = require('vconsole-webpack-plugin')
+// const px2viewport = require('postcss-px-to-viewport')
 module.exports = {
+  style: {
+    postcss: {
+      plugins: [],
+    },
+  },
   webpack: {
     configure: (webpackConfig, { env, paths }) => {
       //css兼容处理

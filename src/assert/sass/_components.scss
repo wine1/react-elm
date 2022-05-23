@@ -26,7 +26,7 @@
   width: 100%;
   height: 60px;
   background: #3390e8;
-  color: #fff;
+  // color: #fff;
   text-align: right;
   .wrap-cart-icon {
     position: absolute;
@@ -66,15 +66,7 @@
       justify-content: space-between;
     }
   }
-  .cartlist-li {
-    display: flex;
-    color: #333;
-    padding: 1.5rem;
-    border-bottom: 1px solid #eee;
-    div {
-      flex: 1;
-    }
-  }
+  
 
   .cartlist-layer {
     position: fixed;
@@ -92,5 +84,20 @@
     height: 60px;
     display: flex;
     justify-content: space-between;
+  }
+}
+
+.component-cartList {
+  display: flex;
+  .left-image {
+    width: 100px;
+    height: 100px;
+  }
+  .center-info {
+    flex:1;
+
+  }
+  .right-count {
+
   }
 }

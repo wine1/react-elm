@@ -1,9 +1,13 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useRef } from 'react';
+import { useState, useEffect } from 'react';
 import newApi from '../../server/newApi';
 
 export default function Mine() {
     const [fileValue, setFileValue] = useState({})
+    const inputEl = useRef(null)
+    useEffect(() => {
+
+    }, [])
 
     const handleFileChange = async (e: any) => {
         // console.log(111, e)
@@ -19,6 +23,11 @@ export default function Mine() {
         console.log(111, res)
     }
 
+    const onButtonClick = () => {
+        // @ts-ignore
+        inputEl.current.focus()
+        console.log(inputEl)
+    }
     return (<div>
         <div>文件上传</div>
         {/* form 上传 利用form表单的enctype属性可以把表单提交的对象设置为多媒体资源，然后通过inuput:file就可以实现文件上传的功能 */}
@@ -35,6 +44,12 @@ export default function Mine() {
         <div>
             <input type="file" name="file" onChange={(e: any) => handleFileChange(e)} />
             <input type="button" value="提交" onClick={submit} />
+        </div>
+
+        <div>输入框</div>
+        <div>
+            <input type="text" ref={inputEl} />
+            <button onClick={onButtonClick}>Focus the input</button>
         </div>
 
     </div>)
